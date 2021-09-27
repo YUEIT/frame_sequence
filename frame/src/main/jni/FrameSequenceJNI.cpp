@@ -141,6 +141,16 @@ static jlong JNICALL nativeGetFrame(
     return delayMs;
 }
 
+static jlong JNICALL nativeGetDelay(
+        JNIEnv* env, jobject clazz, jlong frameSequenceStateLong, jint frameNr, jint previousFrameNr) {
+    FrameSequenceState* frameSequenceState =
+            reinterpret_cast<FrameSequenceState*>(frameSequenceStateLong);
+
+    jlong delayMs = frameSequenceState->delay(frameNr, previousFrameNr);
+
+    return delayMs;
+}
+
 static JNINativeMethod gMethods[] = {
     {   "nativeDecodeByteArray",
         "([BII)L" JNI_PACKAGE "/FrameSequence;",
@@ -165,6 +175,10 @@ static JNINativeMethod gMethods[] = {
     {   "nativeGetFrame",
         "(JILandroid/graphics/Bitmap;I)J",
         (void*) nativeGetFrame
+    },
+    {   "nativeGetDelay",
+        "(JII)J",
+        (void*) nativeGetDelay
     },
     {   "nativeDestroyState",
         "(J)V",

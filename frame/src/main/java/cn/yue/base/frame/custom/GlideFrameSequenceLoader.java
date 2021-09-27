@@ -1,4 +1,4 @@
-package android.support.rastermill;
+package cn.yue.base.frame.custom;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
@@ -6,6 +6,7 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.os.Process;
 import android.os.SystemClock;
+import android.support.rastermill.FrameSequence;
 import android.util.Log;
 
 import java.nio.ByteBuffer;

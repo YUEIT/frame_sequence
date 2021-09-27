@@ -18,5 +18,11 @@ public class MainActivity extends AppCompatActivity {
                 .asFrame()
                 .load("https://images.ypcang.com/1601091463188.gif")
                 .into(imageView);
+
+        ImageView imageView2 = findViewById(R.id.image2);
+        GlideApp.with(this)
+                .asGif()
+                .load("https://images.ypcang.com/1601091463188.gif")
+                .into(imageView2);
     }
 }

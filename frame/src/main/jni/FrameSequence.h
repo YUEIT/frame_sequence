@@ -31,6 +31,9 @@ public:
      */
     virtual long drawFrame(int frameNr,
             Color8888* outputPtr, int outputPixelStride, int previousFrameNr) = 0;
+
+    virtual long delay(int frameNr, int previousFrameNr) = 0;
+
     virtual ~FrameSequenceState() {}
 };
 

@@ -1,6 +1,4 @@
-package cn.yue.base.frame;
-
-import android.support.rastermill.GlideFrameSequenceDrawable;
+package cn.yue.base.frame.glide;
 
 import androidx.annotation.NonNull;
 
@@ -17,7 +15,7 @@ import java.io.IOException;
  * Description : 编码，gif缓存
  * Created by yue on 2020/6/5
  */
-class FrameSequenceEncoder implements ResourceEncoder<GlideFrameSequenceDrawable> {
+public class FrameEncoder implements ResourceEncoder<FrameDrawable> {
 
     @NonNull
     @Override
@@ -26,12 +24,12 @@ class FrameSequenceEncoder implements ResourceEncoder<GlideFrameSequenceDrawable
     }
 
     @Override
-    public boolean encode(@NonNull Resource<GlideFrameSequenceDrawable> data,
+    public boolean encode(@NonNull Resource<FrameDrawable> data,
                           @NonNull File file, @NonNull Options options) {
-        GlideFrameSequenceDrawable drawable = data.get();
+        FrameDrawable drawable = data.get();
         boolean success = false;
         try {
-            ByteBufferUtil.toFile(drawable.getByteBuffer(), file);
+            ByteBufferUtil.toFile(drawable.getBuffer(), file);
             success = true;
         } catch (IOException e) {
             e.printStackTrace();

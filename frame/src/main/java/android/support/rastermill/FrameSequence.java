@@ -48,6 +48,8 @@ public class FrameSequence {
     private static native long nativeGetFrame(long nativeState, int frameNr,
                                               Bitmap output, int previousFrameNr);
 
+    private static native long nativeGetDelay(long nativeState, int frameNr, int previousFrameNr);
+
     @SuppressWarnings("unused") // called by native
     private FrameSequence(long nativeFrameSequence, int width, int height,
                           boolean opaque, int frameCount, int defaultLoopCount) {
@@ -90,7 +92,7 @@ public class FrameSequence {
         return nativeDecodeStream(stream, tempStorage);
     }
 
-    State createState() {
+    public State createState() {
         if (mNativeFrameSequence == 0) {
             throw new IllegalStateException("attempted to use incorrectly built FrameSequence");
         }
@@ -123,7 +125,7 @@ public class FrameSequence {
      * Note: State holds a native ref to its FrameSequence instance, so its FrameSequence should
      * remain ref'd while it is in use
      */
-    static class State {
+    public static class State {
         private long mNativeState;
 
         public State(long nativeState) {
@@ -146,6 +148,10 @@ public class FrameSequence {
                 throw new IllegalStateException("attempted to draw destroyed FrameSequenceState");
             }
             return nativeGetFrame(mNativeState, frameNr, output, previousFrameNr);
+        }
+
+        public long getDelay(int frameNr, int previousFrameNr) {
+            return nativeGetDelay(mNativeState, frameNr, previousFrameNr);
         }
     }
 }

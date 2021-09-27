@@ -1,4 +1,4 @@
-package android.support.rastermill;
+package cn.yue.base.frame.custom;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -10,7 +10,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
+import android.support.rastermill.FrameSequence;
 
 import java.nio.ByteBuffer;
 

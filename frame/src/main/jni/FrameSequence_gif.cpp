@@ -332,6 +332,24 @@ long FrameSequenceState_gif::drawFrame(int frameNr,
     return getDelayMs(gcb);
 }
 
+long FrameSequenceState_gif::delay(int frameNr, int previousFrameNr) {
+
+    GifFileType* gif = mFrameSequence.getGif();
+    if (!gif) {
+        ALOGD("Cannot drawFrame, mGif is NULL");
+        return -1;
+    }
+
+    GraphicsControlBlock gcb;
+
+    int start = max(previousFrameNr + 1, 0);
+
+    for (int i = start; i <= frameNr; i++) {
+        DGifSavedExtensionToGCB(gif, i, &gcb);
+    }
+    return getDelayMs(gcb);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Registry
 ////////////////////////////////////////////////////////////////////////////////

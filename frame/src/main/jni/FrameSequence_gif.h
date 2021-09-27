@@ -81,6 +81,8 @@ public:
     virtual long drawFrame(int frameNr,
             Color8888* outputPtr, int outputPixelStride, int previousFrameNr);
 
+    virtual long delay(int frameNr, int previousFrameNr);
+
 private:
     void savePreserveBuffer(Color8888* outputPtr, int outputPixelStride, int frameNr);
     void restorePreserveBuffer(Color8888* outputPtr, int outputPixelStride);

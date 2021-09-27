@@ -1,8 +1,7 @@
-package cn.yue.base.frame;
+package cn.yue.base.frame.custom;
 
 import android.graphics.Bitmap;
 import android.support.rastermill.FrameSequence;
-import android.support.rastermill.GlideFrameSequenceDrawable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
