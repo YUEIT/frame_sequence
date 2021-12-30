@@ -1,7 +1,5 @@
 package cn.yue.base.frame.custom;
 
-import cn.yue.base.frame.custom.GlideFrameSequenceDrawable;
-
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.load.EncodeStrategy;
@@ -17,7 +15,7 @@ import java.io.IOException;
  * Description : 编码，gif缓存
  * Created by yue on 2020/6/5
  */
-class FrameSequenceEncoder implements ResourceEncoder<GlideFrameSequenceDrawable> {
+public class FrameSequenceEncoder implements ResourceEncoder<GlideFrameSequenceDrawable> {
 
     @NonNull
     @Override
